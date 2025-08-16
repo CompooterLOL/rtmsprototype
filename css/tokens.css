@@ -1,0 +1,185 @@
+/* Design Tokens */
+:root {
+    /* Colors */
+    --color-black-canvas: #0B0B0B;
+    --color-yellow-accent: #FFD400;
+    --color-yellow-soft: #FFEB7A;
+    --color-text-primary: #F7F7F7;
+    --color-text-dim: #CFCFCF;
+    --color-border: rgba(255, 212, 0, 0.25);
+    --color-border-soft: rgba(255, 212, 0, 0.15);
+    --color-border-bright: rgba(255, 212, 0, 0.4);
+    
+    /* Glass effect */
+    --glass-bg: rgba(11, 11, 11, 0.8);
+    --glass-border: rgba(255, 212, 0, 0.2);
+    --glass-backdrop: blur(12px);
+    
+    /* Typography */
+    --font-family: 'Poppins', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    --text-6xl: 4rem;       /* 64px */
+    
+    /* Spacing */
+    --space-1: 0.25rem;     /* 4px */
+    --space-2: 0.5rem;      /* 8px */
+    --space-3: 0.75rem;     /* 12px */
+    --space-4: 1rem;        /* 16px */
+    --space-5: 1.25rem;     /* 20px */
+    --space-6: 1.5rem;      /* 24px */
+    --space-8: 2rem;        /* 32px */
+    --space-10: 2.5rem;     /* 40px */
+    --space-12: 3rem;       /* 48px */
+    --space-16: 4rem;       /* 64px */
+    --space-20: 5rem;       /* 80px */
+    --space-24: 6rem;       /* 96px */
+    
+    /* Border radius - curved corners everywhere */
+    --radius-sm: 10px;
+    --radius-base: 16px;
+    --radius-lg: 22px;
+    --radius-full: 9999px;
+    
+    /* Shadows and glows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-base: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Glow effects */
+    --glow-sm: 0 0 10px rgba(255, 212, 0, 0.3);
+    --glow-base: 0 0 20px rgba(255, 212, 0, 0.4);
+    --glow-lg: 0 0 30px rgba(255, 212, 0, 0.5);
+    --glow-pulse: 0 0 25px rgba(255, 212, 0, 0.6);
+    
+    /* Grid and layout */
+    --container-max-width: 1280px;
+    --grid-columns: 12;
+    --grid-gap: var(--space-6);
+    
+    /* Breakpoints (used in media queries) */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 960px;
+    --breakpoint-lg: 1280px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease-out;
+    --transition-base: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+    
+    /* Z-index scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-toast: 1080;
+}
+
+/* Glow mode variations */
+.theme-redesign {
+    --current-glow: var(--glow-base);
+    --current-glow-hover: var(--glow-lg);
+}
+
+.theme-accessible {
+    --current-glow: none;
+    --current-glow-hover: var(--glow-sm);
+    --color-border: rgba(255, 212, 0, 0.15);
+}
+
+.theme-high-glow {
+    --current-glow: var(--glow-lg);
+    --current-glow-hover: var(--glow-pulse);
+}
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
+    background: var(--color-black-canvas);
+    line-height: 1.6;
+    
+    /* Subtle background texture */
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 212, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 212, 0, 0.03) 0%, transparent 50%);
+    
+    /* Subtle vignette */
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Focus styles - always visible and branded */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    box-shadow: 
+        0 0 0 2px var(--color-yellow-accent),
+        0 0 0 4px rgba(255, 212, 0, 0.3);
+    border-radius: var(--radius-base);
+}
+
+/* Selection styles */
+::selection {
+    background: var(--color-yellow-accent);
+    color: var(--color-black-canvas);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-black-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-yellow-accent);
+}
