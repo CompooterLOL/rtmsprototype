@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTMS - Real-Time Membership System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="theme-redesign">
+    <nav class="nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="RTMS Logo" class="logo-image" id="logoImage">
+                <div class="logo-text">RTMS</div>
+            </div>
+            
+            <!-- Public Navigation -->
+            <div class="nav-menu" id="publicNavMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#join" class="nav-link">Join</a>
+                <a href="#challenges" class="nav-link">Challenges</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#sponsors" class="nav-link">Sponsors</a>
+                <a href="#chapters" class="nav-link">Chapters</a>
+                <a href="#merch" class="nav-link">Merch</a>
+                <a href="#calendar" class="nav-link">Calendar</a>
+                <a href="#policies" class="nav-link">Policies</a>
+            </div>
+
+            <!-- Student Navigation -->
+            <div class="nav-menu hidden" id="studentNavMenu">
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#challenges" class="nav-link">Challenges</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#calendar" class="nav-link">Calendar</a>
+                <a href="#submissions" class="nav-link">My Submissions</a>
+                <a href="#profile" class="nav-link">Profile</a>
+            </div>
+
+            <!-- Staff Navigation -->
+            <div class="nav-menu hidden" id="staffNavMenu">
+                <a href="#admin-dashboard" class="nav-link">Admin</a>
+                <a href="#manage-students" class="nav-link">Students</a>
+                <a href="#manage-challenges" class="nav-link">Challenges</a>
+                <a href="#manage-chapters" class="nav-link">Chapters</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+                <a href="#settings" class="nav-link">Settings</a>
+            </div>
+
+            <div class="nav-actions">
+                <!-- Public Actions -->
+                <div class="auth-actions" id="publicActions">
+                    <button class="btn btn-ghost btn-small" id="loginBtn">Login</button>
+                    <button class="btn btn-primary btn-small" id="joinBtn">Join Club</button>
+                </div>
+
+                <!-- Authenticated Actions -->
+                <div class="auth-actions hidden" id="authenticatedActions">
+                    <div class="user-menu">
+                        <div class="user-avatar" id="userAvatar">
+                            <img src="" alt="User Avatar" id="avatarImage" class="hidden">
+                            <span id="avatarInitials">U</span>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name" id="userName">User Name</div>
+                            <div class="user-role" id="userRole">Student</div>
+                        </div>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="#profile" class="dropdown-item">Profile</a>
+                            <a href="#settings" class="dropdown-item">Settings</a>
+                            <hr class="dropdown-divider">
+                            <button class="dropdown-item logout-btn" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                    <div class="notifications" id="notifications">
+                        <button class="notification-btn" id="notificationBtn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge hidden" id="notificationBadge">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Home Page -->
+        <section id="home" class="page page-home active">
+            <div class="hero">
+                <div class="container">
+                    <h1 class="hero-title">Join. Learn. Build.</h1>
+                    <p class="hero-subtitle">Connect with student makers, tackle real challenges, and ship projects that matter.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large">Join the Club</button>
+                        <button class="btn btn-secondary btn-large sponsor-cta">Become a Sponsor</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-strip">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Students</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">450+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsors-section">
+                <div class="container">
+                    <h2 class="section-title">Powered by Industry Leaders</h2>
+                    <div class="sponsors-grid">
+                        <div class="sponsor-logo">Google</div>
+                        <div class="sponsor-logo">Microsoft</div>
+                        <div class="sponsor-logo">Meta</div>
+                        <div class="sponsor-logo">Apple</div>
+                        <div class="sponsor-logo">Amazon</div>
+                        <div class="sponsor-logo">Netflix</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other pages will be added here -->
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay hidden" id="loginModal">
+        <div class="modal login-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Welcome Back</h2>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="login-tabs">
+                    <button class="tab-btn active" data-tab="student">Student Login</button>
+                    <button class="tab-btn" data-tab="staff">Staff Login</button>
+                </div>
+                
+                <form class="login-form" id="loginForm">
+                    <div class="input-group">
+                        <label class="input-label" for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="loginPassword">Password</label>
+                        <div class="password-input-group">
+                            <input type="password" id="loginPassword" class="input" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" id="togglePassword">👁️</button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <a href="#forgot-password" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-loader hidden">
+                            <div class="spinner"></div>
+                        </span>
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#join" class="signup-link">Join the club</a></p>
+                    <div class="social-login">
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+                        <div class="social-buttons">
+                            <button class="btn btn-ghost social-btn" id="googleLogin">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23EA4335' d='M5.26620003,9.50769749 L7.07460778,11.2174828 C7.68609891,9.35305943 9.42994444,8.02135817 11.5,8.02135817 C13.061,8.02135817 14.45,8.61455209 15.48,9.53455209 L17.56,7.45455209 C16,5.99455209 13.93,5.05755209 11.5,5.05755209 C8.7,5.05755209 6.37,6.86755209 5.26620003,9.50769749 Z'/%3E%3Cpath fill='%2334A853' d='M16.3,11.8 L16.3,10.7 L11.5,10.7 L11.5,13.4 L14.4,13.4 C13.9,14.8 12.8,15.8 11.5,15.8 C9.9,15.8 8.6,14.5 8.6,12.9 C8.6,11.3 9.9,10 11.5,10 C12.3,10 13,10.3 13.5,10.8 L15.4,8.9 C14.3,7.9 12.9,7.3 11.5,7.3 C8.5,7.3 6,9.8 6,12.8 C6,15.8 8.5,18.3 11.5,18.3 C14.5,18.3 17,15.8 17,12.8 C17,12.1 16.9,11.4 16.7,10.7 L16.3,11.8 Z'/%3E%3Cpath fill='%23FBBC05' d='M11.5,5.05755209 C13.93,5.05755209 16,5.99455209 17.56,7.45455209 L15.48,9.53455209 C14.45,8.61455209 13.061,8.02135817 11.5,8.02135817 C9.42994444,8.02135817 7.68609891,9.35305943 7.07460778,11.2174828 L5.26620003,9.50769749 C6.37,6.86755209 8.7,5.05755209 11.5,5.05755209 Z'/%3E%3C/svg%3E" alt="Google" width="20" height="20">
+                                Google
+                            </button>
+                            <button class="btn btn-ghost social-btn" id="githubLogin">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
